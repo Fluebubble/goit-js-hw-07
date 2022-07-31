@@ -16,20 +16,9 @@ const markup = galleryItems
 
 galleryEl.insertAdjacentHTML("beforeend", markup);
 
-galleryEl.addEventListener("click", onImageClick);
+galleryEl.addEventListener("click", () => {});
 
-function onImageClick(event) {
-    event.preventDefault();
-    if (!event.target.classList.contains("gallery__image")) {
-        return;
-    }
-
-    console.log(event.target.src);
-
-    const lightBoxImg = new SimpleLightbox('.gallery a', {
-        // sourceAttr: `${event.target.src}`,
-
-    })
-
-    lightBoxImg.open();
-}
+const lightBoxImg = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250
+});
